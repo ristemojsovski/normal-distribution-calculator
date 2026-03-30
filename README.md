@@ -4,6 +4,10 @@ A modern desktop application for calculating probabilities and values of the nor
 
 Built with **Python**, featuring an intuitive UI and interactive visualization.
 
+## 📦 Download App
+
+👉 [Download latest version](https://github.com/ristemojsovski/normal-distribution-calculator/releases)
+
 ---
 
 ## 🚀 Features
