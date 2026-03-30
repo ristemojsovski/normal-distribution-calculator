@@ -1,87 +1,122 @@
 # 📊 Normal Distribution Calculator
 
-A modern desktop application for calculating probabilities and values of the normal distribution.
+A modern, interactive calculator for the **normal distribution**, available both as:
 
-Built with **Python**, featuring an intuitive UI and interactive visualization.
+* 🖥️ Desktop application (PyInstaller)
+* 🌐 Web application (Streamlit)
 
-## 📦 Download App
+Designed for students, analysts, and professionals who need quick and intuitive probability calculations.
 
-👉 [Download latest version](https://github.com/ristemojsovski/normal-distribution-calculator/releases)
+---
+
+## 🌐 Live Web App
+
+👉 **Use instantly in your browser**
+[Open Calculator](https://ndcalculator.streamlit.app)
+
+---
+
+## 📦 Desktop App (Download)
+
+👉 Download the latest version from:
+[Releases](https://github.com/ristemojsovski/normal-distribution-calculator/releases)
+
+### macOS Instructions
+
+1. Download `.zip`
+2. Unzip the file
+3. Right-click → **Open**
+
+If macOS blocks the app:
+
+```bash
+xattr -cr NormalDistributionCalculator.app
+```
 
 ---
 
 ## 🚀 Features
 
-* 📈 Standard normal distribution (default: μ = 0, σ = 1)
-* 🔄 Supports two calculation modes:
+* 📈 Normal distribution with default:
 
-  * Input values → calculate probability
-  * Input probability → calculate values
-* 🎯 Four probability types:
+  * Mean (μ) = 0
+  * Standard deviation (σ) = 1
+
+* 🔄 Two calculation modes:
+
+  * **Input values → calculate probability**
+  * **Input probability → calculate values**
+
+* 🎯 Supported probability types:
 
   * `X ≤ q`
   * `X > q`
   * `q1 < X ≤ q2`
   * `X ≤ q1 OR X > q2`
-* 📉 Interactive graph with shaded probability area
-* 🎨 Clean and modern UI (CustomTkinter)
+
+* 📉 Interactive visualization:
+
+  * Real-time plotted distribution
+  * Shaded probability regions
+
+* 🎨 Clean UI:
+
+  * Desktop: CustomTkinter
+  * Web: Streamlit
 
 ---
 
-## 🖼️ Preview
+## 🧠 Mathematical Background
 
-![App Screenshot](assets/screenshot.png)
+The application is based on the **normal distribution**:
+
+* Probability Density Function (PDF)
+* Cumulative Distribution Function (CDF)
+* Percent Point Function (PPF, inverse CDF)
+
+Implemented using:
+
+```python
+scipy.stats.norm
+```
 
 ---
 
-## 🛠️ Installation (Run from Source)
-
-### 1. Clone the repository
+## 🖥️ Run Desktop App (from source)
 
 ```bash
 git clone https://github.com/ristemojsovski/normal-distribution-calculator.git
 cd normal-distribution-calculator
-```
 
-### 2. (Optional) Create virtual environment
-
-```bash
-python -m venv venv
-source venv/bin/activate   # Mac/Linux
-venv\Scripts\activate      # Windows
-```
-
-### 3. Install dependencies
-
-```bash
 pip install -r requirements.txt
-```
-
-### 4. Run the application
-
-```bash
 python app.py
 ```
 
 ---
 
-## 📦 Build Desktop App (Mac)
+## 🌐 Run Web App (Streamlit locally)
 
-### Install PyInstaller
+```bash
+pip install -r requirements.txt
+streamlit run streamlit_app.py
+```
+
+Then open:
+
+```text
+http://localhost:8501
+```
+
+---
+
+## 🏗️ Build Desktop App (Mac)
 
 ```bash
 pip install pyinstaller
-```
-
-### Build the app
-
-```bash
 pyinstaller --windowed --name "NormalDistributionCalculator" --icon=assets/icon.icns app.py
 ```
 
-### Output
-
-The built application will be located in:
+Output:
 
 ```text
 dist/NormalDistributionCalculator.app
@@ -89,16 +124,10 @@ dist/NormalDistributionCalculator.app
 
 ---
 
-## 📦 Build Desktop App (Windows)
+## 🏗️ Build Desktop App (Windows)
 
 ```bash
 pyinstaller --onefile --windowed --icon=assets/icon.ico app.py
-```
-
-Output:
-
-```text
-dist/app.exe
 ```
 
 ---
@@ -108,24 +137,27 @@ dist/app.exe
 ```text
 normal-distribution-calculator/
 │
-├── app.py
+├── app.py                         # Desktop application (Tkinter)
+├── streamlit_app.py              # Web application (Streamlit)
 ├── requirements.txt
 ├── README.md
 ├── .gitignore
 │
-├── assets/
+├── assets/                       # Icons, images
 │   ├── icon.icns
 │   ├── icon.ico
 │   └── screenshot.png
 │
-├── dist/        (generated)
-├── build/       (generated)
+├── dist/                         # Build output (ignored)
+├── build/                        # Build temp (ignored)
+└── venv/                         # Virtual env (ignored)
 ```
 
 ---
 
-## 📚 Dependencies
+## 📦 Dependencies
 
+* `streamlit`
 * `customtkinter`
 * `scipy`
 * `matplotlib`
@@ -133,47 +165,21 @@ normal-distribution-calculator/
 
 ---
 
-## 🧠 How It Works
+## ⚠️ Notes
 
-The app uses the normal distribution:
-
-* PDF (probability density function)
-* CDF (cumulative distribution function)
-* PPF (inverse CDF)
-
-From:
-
-* `scipy.stats.norm`
-
----
-
-## 🎯 Use Cases
-
-* Students learning statistics
-* Data analysts
-* Quick probability calculations
-* Teaching and demonstrations
-
----
-
-## 📌 Notes
-
-* macOS may block first launch → Right click → Open
-* Or run:
-
-```bash
-xattr -cr dist/NormalDistributionCalculator.app
-```
+* `.app` files are macOS bundles → must be zipped before sharing
+* macOS may block unsigned apps → use `xattr -cr`
+* `dist/`, `build/`, and `venv/` are excluded via `.gitignore`
 
 ---
 
 ## 🤝 Contributing
 
-Feel free to:
+Contributions are welcome:
 
-* fork the repo
-* suggest improvements
-* add new distributions (t, chi-square, etc.)
+* Add new distributions (t, chi-square, binomial)
+* Improve UI/UX
+* Optimize performance
 
 ---
 
@@ -185,4 +191,4 @@ MIT License
 
 ## ⭐ Support
 
-If you like this project, give it a ⭐ on GitHub!
+If you find this project useful, please ⭐ the repository!
